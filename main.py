@@ -107,10 +107,7 @@ def upload_data(root):
     Uploading CSV file using pandas. Detail in horizon.py and conn.py
     """
     try:
-        filename = filedialog.askopenfilename(initialdir="C:/Users/akmal/PycharmProjects/pythonProject/",
-                                              title="File Manager",
-                                              filetypes=(("CSV Files", "*.csv"), ("All", "*.*"))
-                                              )
+        filename = filedialog.askopenfilename(title="File Manager", filetypes=(("CSV Files", "*.csv"), ("All", "*.*")))
         df = horizon.open_csv(filename)
         print(df)
         engine_stmt = 'mysql+mysqldb://%s:%s@%s:%s/%s' % ("root", urlquote("rafie1112"), "localhost", "3306", "student")
