@@ -1,14 +1,14 @@
 from conn import Connector
 
 def connect():
-    connection = Connector("localhost", "3306", "root", "rafie1112", "student")
+    connection = Connector("localhost", "3306", "root", "", "student")
     connection = connection.connect_db()
     info = connection.get_server_info()
     print(info)
     return(connection)
 
 def open_csv(path):
-    connection = Connector("localhost", "3306", "root", "rafie1112", "student")
+    connection = Connector("localhost", "3306", "root", "", "student")
     file = connection.import_csv(path)
     return file
 
