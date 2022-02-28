@@ -15,8 +15,8 @@
 - Exception handling
 
 #### :black_nib: Prerequisites:
-- Python 3 [Download Python3 Here](https://www.python.org/downloads/)
-- MYSQL/XAMPP [Download XAMMP Here](https://www.apachefriends.org/download.html)
+- Python 3 [Download Python3](https://www.python.org/downloads/)
+- MYSQL/XAMPP [Download XAMMP](https://www.apachefriends.org/download.html)
 - Import student.sql file in phpmyadmin
 
 #### :black_nib: MYSQL database and table:
