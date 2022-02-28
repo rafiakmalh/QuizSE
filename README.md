@@ -3,7 +3,7 @@
 
 <img src="documentation/newdoc.png" />
 
-#### Fetures:
+#### Features:
 - MySQL database
 - Validation of input
 - Add data
