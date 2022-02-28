@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox, filedialog
+from tkinter.filedialog import asksaveasfile
 from urllib.parse import quote_plus as urlquote
 import tkinter.ttk as tk
 import re, horizon, sqlalchemy
@@ -71,43 +72,76 @@ def draw_main_screen():
         font="none 15",
         command=lambda: search_data_window(root),
     )
-    btn_search.grid(column=0, row=0, padx=50)
+    btn_search.grid(column=0, row=0, padx=25)
     btn_add = Button(
         button_container,
         text="Add Data",
         font="none 15",
         command=lambda: add_data_window(root),
     )
-    btn_add.grid(column=1, row=0, padx=50)
+    btn_add.grid(column=1, row=0, padx=25)
     btn_remove = Button(
         button_container,
         text="Remove Data",
         font="none 15",
         command=lambda: remove_data_window(root),
     )
-    btn_remove.grid(column=2, row=0, padx=50)
+    btn_remove.grid(column=2, row=0, padx=25)
     btn_update = Button(
         button_container,
         text="Update Data",
         font="none 15",
         command=lambda: update_data_window(root),
     )
-    btn_update.grid(column=3, row=0, padx=50)
+    btn_update.grid(column=3, row=0, padx=25)
     btn_upload = Button(
         button_container,
         text="Upload Data",
         font="none 15",
-        command=lambda: upload_data(root),
+        command=lambda: upload_data(),
     )
-    btn_upload.grid(column=4, row=0, padx=50)
+    btn_upload.grid(column=4, row=0, padx=25)
+    btn_save = Button(
+        button_container,
+        text="Save Data",
+        font="none 15",
+        command=lambda: save_data(),
+    )
+    btn_save.grid(column=5, row=0, padx=25)
     root.mainloop()
 
-def upload_data(root):
+def save_data():
+    """
+    Saving CSV file using tkinter
+    """
+    try:
+        """
+        Get data content from database
+        """
+        rows = horizon.getAllStudents()
+        if len(rows) > 0:
+            head = "ROLL,NAME,GENDER,CONTACT,DOB,ADDRESS"
+            for row in rows:
+                head += f"\n{row['ROLL']},{row['NAME']},{row['GENDER']},{row['CONTACT']},{row['DOB']},{row['ADDRESS']}"
+            files = [('All', '*.*'),
+                     ('CSV Files', "*.csv")]
+            file = asksaveasfile(filetypes=files, defaultextension=files, mode='w')
+            if file is None:
+                return
+            file.write(head)
+            file.close()
+            print("Saving...")
+    except Exception as e:
+        print(e)
+
+def upload_data():
     """
     Uploading CSV file using pandas. Detail in horizon.py and conn.py
     """
     try:
-        filename = filedialog.askopenfilename(title="File Manager", filetypes=(("CSV Files", "*.csv"), ("All", "*.*")))
+        filename = filedialog.askopenfilename(title="File Manager",
+                                              filetypes=(("CSV Files", "*.csv"), ("All", "*.*"))
+                                              )
         df = horizon.open_csv(filename)
         print(df)
         engine_stmt = 'mysql+mysqldb://%s:%s@%s:%s/%s' % ("root", urlquote(""), "localhost", "3306", "student")
@@ -317,7 +351,6 @@ def add_data_window(root):
                     "Contact and Roll Number Must \nBe In Digits!",
                     parent=window,
                 )
-
     submit = Button(frame_center, text="Submit", width=10, pady=5, command=addData)
     submit.grid(columnspan=2, row=6, padx=10, pady=10)
 
