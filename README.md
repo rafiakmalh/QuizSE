@@ -1,7 +1,7 @@
 #  <center>Student Management System</center>
 ####  <center>Documentation: </center>
 
-[<img src="documentation/doc.png" />](https://t.me/vinayak_09)
+<img src="documentation/doc.png" />
 
 #### Fetures:
 - MySQL database
