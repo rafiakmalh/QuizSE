@@ -110,7 +110,7 @@ def upload_data(root):
         filename = filedialog.askopenfilename(title="File Manager", filetypes=(("CSV Files", "*.csv"), ("All", "*.*")))
         df = horizon.open_csv(filename)
         print(df)
-        engine_stmt = 'mysql+mysqldb://%s:%s@%s:%s/%s' % ("root", urlquote("rafie1112"), "localhost", "3306", "student")
+        engine_stmt = 'mysql+mysqldb://%s:%s@%s:%s/%s' % ("root", urlquote(""), "localhost", "3306", "student")
         print(engine_stmt)
         engine = sqlalchemy.create_engine(engine_stmt)
         df.to_sql(name="students", con=engine,
