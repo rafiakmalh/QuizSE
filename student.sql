@@ -41,7 +41,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`ROLL`, `NAME`, `GENDER`, `CONTACT`, `DOB`, `ADDRESS`) VALUES
-(1234, 'Zero', 'Male', '8XXXXXXXXXX', '2021-08-21', 'London');
+(1234, 'Zero', 'Male', '82483838473', '2021-08-21', 'London');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
