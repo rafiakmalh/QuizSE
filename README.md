@@ -1,4 +1,4 @@
-#  <center>Student Management System</center>
+#  <center>Student Management System | Quiz SE</center>
 ####  <center>Documentation: </center>
 
 <img src="documentation/newdoc.png" />
