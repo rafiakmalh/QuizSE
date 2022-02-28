@@ -17,7 +17,7 @@
 #### :black_nib: Prerequisites:
 - Python 3 [Download Python3](https://www.python.org/downloads/)
 - MYSQL/XAMPP [Download XAMMP](https://www.apachefriends.org/download.html)
-- Import student.sql file in phpmyadmin
+- Import student.sql file in phpMyAdmin
 
 #### :black_nib: MYSQL database and table:
 ```
