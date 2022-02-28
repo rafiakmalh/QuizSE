@@ -40,5 +40,5 @@ pip3 install mysql-connector-python
 python3 main.py
 ```
 
-Arigatou~
+###Arigatou~
 <img src="documentation/yoi.gif" />
