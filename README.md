@@ -41,3 +41,4 @@ python3 main.py
 ```
 
 Arigatou~
+<img src="documentation/yoi.gif" />
