@@ -11,6 +11,7 @@
 - Remove data
 - Update data
 - Upload data using CSV file
+- Saving table data to CSV file
 - Exception handling
 
 #### Prerequisites:
